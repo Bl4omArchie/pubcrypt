@@ -11,7 +11,7 @@ First release, features:
 In-coming:
 - pkcs and oaep scheme for a more secure enc/dec and signature
 - file format PEM
-- and maybe more for after
+- and after maybe more
 
 ## 📄 Documentation
 
@@ -27,6 +27,6 @@ Find me on:
 
 ## 📜 Acknowledgements
 
- - [NIST FIPS 186-4: DSS](https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.186-4.pdf)
+ - [NIST FIPS 186-4: Digital Signature Standard (DSS)](https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.186-4.pdf)
  - [NIST SP 800-56Br2: Recommendation for Pair-Wise Key Establishment Using Integer Factorization Cryptography](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Br2.pdf)
  - [RosettaCode](https://rosettacode.org/wiki/Rosetta_Code)
