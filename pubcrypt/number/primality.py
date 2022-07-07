@@ -1,5 +1,5 @@
 from random import getrandbits, randrange
-from pubcrypt.util import gcd, isqrt
+from pubcrypt.number.util import gcd, isqrt
 
 
 def get_prime_factors(pBits, e):

@@ -1,5 +1,5 @@
-from pubcrypt.primality import get_prime_factors
-from pubcrypt.util import *
+from pubcrypt.number.primality import get_prime_factors
+from pubcrypt.number.util import *
 
 
 def generate(nBits, e=65537):

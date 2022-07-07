@@ -1,5 +1,5 @@
-from pubcrypt.rsa import encrypt, decrypt
-from pubcrypt.util import int_to_byte
+from pubcrypt.modules.rsa import encrypt, decrypt
+from pubcrypt.number.util import int_to_byte
 from random import getrandbits
 from os import urandom
 from Crypto.Util.number import bytes_to_long
