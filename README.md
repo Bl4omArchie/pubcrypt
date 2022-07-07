@@ -7,12 +7,12 @@ DISCLAIMER: This librairy isn't cryptographically secure and do NOT provide a re
 First release, features:
 - function for generating public and privet key
 - encryption and decryption 
+- recovery prime factors from the public and privet key
 
 In-coming:
 - pkcs and oaep scheme for a more secure enc/dec and signature
 - file format PEM
 - and after maybe more
-- recovery prime factors from the public and privet key
 
 ## 📄 Documentation
 
