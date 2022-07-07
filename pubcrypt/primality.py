@@ -1,6 +1,5 @@
 from random import getrandbits, randrange
-from pubcrypt.util import gcd
-from math import sqrt
+from pubcrypt.util import gcd, isqrt
 
 
 def get_prime_factors(pBits, e):
@@ -10,7 +9,7 @@ def get_prime_factors(pBits, e):
         if p%2 == 0:
             p += 1
 
-        if p >= sqrt(2)*(pow(2, pBits-1)):
+        if p >= isqrt(2)*(pow(2, pBits-1)):
             if gcd(p-1, e) == 1:
                 candidate = miller_rabin(p, pBits, 5)
 
@@ -20,7 +19,7 @@ def get_prime_factors(pBits, e):
         if q%2 == 0:
             q += 1
 
-        if p-q > pow(2, (pBits)-100) or q >= sqrt(2)*(pow(2, pBits-1)):
+        if p-q > pow(2, (pBits)-100) or q >= isqrt(2)*(pow(2, pBits-1)):
             if gcd(q-1, e) == 1:
                 candidate = miller_rabin(q, pBits, 5)
     

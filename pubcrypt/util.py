@@ -35,3 +35,22 @@ def lcm(x, y):
 def pair_wise_consistency_test(n, e, d):
     m = randrange(1, n-1)
     return m == pow(m, e*d, n)
+
+def isqrt (x):
+    """ Credit: https://rosettacode.org/wiki/Isqrt_(integer_square_root)_of_X#Python """
+    q = 1
+    while q <= x : 
+        q *= 4
+
+    z, r = x, 0
+    while q > 1 :
+        q //= 4
+        t, r = z-r-q, r//2
+        if t >= 0 :
+            z, r = t, r+q
+    return r 
+
+
+def int_to_byte(integer, size):
+    """ Credit: https://en.bitcoinwiki.org/wiki/Mask_generation_function """
+    return b''.join([bytes(chr((integer >> (8 * i)) & 0xFF), "utf-8") for i in reversed(range(size))])

@@ -21,8 +21,31 @@ def generate(nBits, e=65537):
 
     return n, e, d
 
-def encrypt(m, e, n):
-    return pow(m, e, n)
 
-def decryp(c, d, n):
-    return pow(c, d, n)
+def encrypt(m, e, n):
+    if 0 < m < n-1:
+        return pow(m, e, n)
+
+    else:
+        raise ValueError("Message representative out of range")
+
+
+def decrypt(c, d, n):
+    if 0 < c < n-1:
+        return pow(c, d, n)
+
+    else:
+        raise ValueError("Ciphertext representative out of range")
+
+
+def prime_recovery(n, e, d):
+    a = (d*e-1) * gcd(n-1, d*e-1)
+    m = a//n
+    r = a - m*n
+    b = (n-r) // (m+1) +1
+
+    if pow(b, 2) <= 4*n:
+        raise ValueError("Error")
+
+    y = isqrt(pow(b, 2)-4*n)
+    return (b+y) // 2, (b-y) // 2
