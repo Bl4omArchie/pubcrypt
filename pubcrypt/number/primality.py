@@ -1,5 +1,6 @@
+from pubcrypt.number.util import gcd, isqrt, perfect_square
 from random import getrandbits, randrange
-from pubcrypt.number.util import gcd, isqrt
+from math import log2
 
 
 def get_prime_factors(pBits, e):
@@ -50,3 +51,43 @@ def miller_rabin(w, wLen, r):
             return 0
  
     return 1
+
+def phi(n):
+    amount = 0
+    for k in range(1, n + 1):
+        if gcd(k, n) == 1:
+            amount += 1
+    return amount
+
+
+def aks_primality_test(n):
+    if perfect_square(n):
+        return 0
+
+    maxK = pow(log2(n), 2)    
+    nexR = True           
+    r = 1
+
+    while nexR == True:
+        r +=1
+        nexR = False
+        k = 0
+        while k <= maxK and nexR == False:
+            k += 1
+            if pow(n, k, r) == 0 or pow(n, k, r) == 1:
+                nexR = True
+
+    for a in range(2, min(r, n)+1):                    
+        if gcd(a,n) > 1:                       
+            return 0
+
+    if n <= r:
+        return 1
+
+    for a in range(1, floor(isqrt(phi(r))*log2(n))):
+        c=1
+        for i in range(n//2+1):
+            c = c*(p-i)//(i+1)
+            if c%n:
+                return 0
+        return 1

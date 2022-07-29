@@ -4,19 +4,38 @@ DISCLAIMER: This librairy isn't cryptographically secure and do NOT provide a re
 
 ## 📢 Update:
 
-First release, features:
+Features:
 - function for generating public and privet key
-- encryption and decryption 
+- primitive function: encryption, decryption, signature and signature checking
+- pkcs scheme encryption/decryption/signature
 - recovery prime factors from the public and privet key
 
 In-coming:
-- pkcs and oaep scheme for a more secure enc/dec and signature
 - file format PEM
-- and after maybe more
+- aks primality test
+- and after maybe more modules
 
 ## 📄 Documentation
 
-Only three functions are existing, you can find a tutorial in the example.py file. Pretty easy to handle ;)
+rsa:
+- generate(nBits, e=65537)
+- primitive_exp(m, exp, n)
+- prime_recovery(n, e, d)
+
+primality:
+- get_prime_factors(pBits, e)
+- miller_rabin(w, wLen, r)
+- aks_primality_test(n)
+
+util:
+- invmod(z, a): modular inverse
+- gcd(x,y): great common divisor
+- lcm(x, y): less common multiple
+- pair_wise_consistency_test(n, e, d)
+- isqrt(x): square root
+- perfect_square(c): check if the number is a perfect square (a number of the form: x**2)
+- int_to_bytes(x: int): converting an integer to a byre string
+- bytes_to_int(xbytes: bytes): converting a byte string to an integer
 
 
 ## 🔗 Author
@@ -30,4 +49,5 @@ Find me on:
 
  - [NIST FIPS 186-4: Digital Signature Standard (DSS)](https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.186-4.pdf)
  - [NIST SP 800-56Br2: Recommendation for Pair-Wise Key Establishment Using Integer Factorization Cryptography](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Br2.pdf)
+ - [PKCS #1 Version 2.2: RSA Cryptography Specifications draft-moriarty-pkcs1-01](https://datatracker.ietf.org/doc/pdf/draft-moriarty-pkcs1-01.pdf)
  - [RosettaCode](https://rosettacode.org/wiki/Rosetta_Code)

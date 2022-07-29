@@ -22,20 +22,13 @@ def generate(nBits, e=65537):
     return n, e, d
 
 
-def encrypt(m, e, n):
+def primitive_exp(m, exp, n):
+    """ This function represent the encryption/decryption/signature operation """
     if 0 < m < n-1:
-        return pow(m, e, n)
+        return pow(m, exp, n)
 
     else:
-        raise ValueError("Message representative out of range")
-
-
-def decrypt(c, d, n):
-    if 0 < c < n-1:
-        return pow(c, d, n)
-
-    else:
-        raise ValueError("Ciphertext representative out of range")
+        raise ValueError("Data representative out of range")
 
 
 def prime_recovery(n, e, d):

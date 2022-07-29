@@ -1,4 +1,6 @@
+from math import floor, log2, ceil
 from random import randrange
+
 
 def invmod(z, a):
     if not z < a:
@@ -50,7 +52,22 @@ def isqrt (x):
             z, r = t, r+q
     return r 
 
+def perfect_square(c):
+    n = floor(log2(c)) + 1
+    m = ceil(n/2)
+    x = pow(2, m) - pow(2, m-1)
 
-def int_to_byte(integer, size):
-    """ Credit: https://en.bitcoinwiki.org/wiki/Mask_generation_function """
-    return b''.join([bytes(chr((integer >> (8 * i)) & 0xFF), "utf-8") for i in reversed(range(size))])
+    while True:
+        x = (pow(x, 2)+c)/(2*x)
+
+        if pow(x, 2) < pow(2, m)+c:
+            break
+
+    return c == pow(floor(x), 2)
+
+
+def int_to_bytes(x: int) :
+    return x.to_bytes((x.bit_length() + 7) // 8, 'big')
+    
+def bytes_to_int(xbytes: bytes) :
+    return int.from_bytes(xbytes, 'big') 
